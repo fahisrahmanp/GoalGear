@@ -1,0 +1,421 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+header {
+    background-color: #edff5c;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 65px;
+}
+
+.left a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+}
+
+.middle ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.middle ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.middle ul li a:hover {
+    color: #6151cd;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.search img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.right ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.right ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.right ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+}
+
+.right ul li a.button-1 img {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 4px;
+}
+
+/* .right ul li a.button-2 img {
+    width: 26px;
+    height: 26px;
+    margin: 0 10px 0px 33px;
+} */
+.login-btn {
+    background-color: #6151cd;
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    width: auto !important;
+    height: auto !important;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #4a3fa0;
+}
+
+.right ul {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+
+#product_bag .wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.bag-container {
+    display: flex;
+    width: 100%;
+    background: white;
+    padding: 80px 0 80px 0;
+}
+
+/* Left Section */
+.bag-container .left {
+    flex: 2;
+    padding-right: 20px;
+}
+.bag-container .left .product-item {
+    display: flex;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 0 90px 0 70px;
+    align-items: center;
+}
+
+.product-item .item-image img {
+    width: 170px;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+.product-item .quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 16px 0 0 50px;
+}
+
+.product-item .quantity-control .qty-btn {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #dee2e6;
+    border-radius: 50%;
+    background: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.product-item .quantity-control .qty-btn:hover {
+    background: #f8f9fa;
+}
+ .product-item .item-details {
+    margin-left: 40px;
+    flex: 1;
+}
+.product-item .item-details h4 {
+    margin: 25px 0 30px 0;
+    font-size: 22px;
+}
+.product-item .item-details .price-section {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0 10px 0;
+}
+
+.product-item .item-details .price-section .original-price {
+    text-decoration: line-through;
+    color: gray;
+}
+.product-item .item-details .price-section .discounted-price {
+    color: #388e3c;
+    font-size: 18px;
+}
+.product-item .item-details .price-section .discount-percent {
+    color: #ff5722;
+    font-size: 18px;
+}
+.product-item .item-details .action-buttons {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+.product-item .item-details .action-buttons button {
+    background: none;
+    border: none;
+    color: #2874f0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.empty p {
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+    margin-top: 85px;
+}
+
+.bag-container {
+    display: flex; /* not grid */
+    justify-content: space-between;
+    align-items: flex-start; /* this prevents the right box from stretching vertically */
+}
+
+.bag-container .right {
+    display: grid;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-right: 100px;
+    width: 40%; /* set a fixed or max width */
+}
+
+.bag-container .right .price-details h3 {
+    margin-bottom: 10px;
+}
+
+.price-details .price-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.price-details .total-amount {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.price-details .savings {
+    color: #388e3c;
+    font-weight: bold;
+    margin: 30px 0 0 0;
+}
+
+div.right .place-order-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #120702;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+div.right .place-order-btn:hover{
+    background-color: #6151cd;
+}
+.price-details .security-note {
+    text-align: center;
+    font-size: 12px;
+    color: gray;
+    margin-top: 10px;
+}
+footer{
+	padding: 70px 0 0 0;
+	background-color: #1e0238;
+	position: relative;
+	z-index: 1;
+}
+footer section.top{
+	display: flex;
+	justify-content: space-between;
+}
+footer section.top div.item{
+	width: 20%;
+    margin-left: 65px;
+}
+footer section.top div.item.large{
+	width: 32%;
+}
+footer section.top div.item:last-child{
+	width: 28%;
+    margin-right: 70px;
+}
+footer section.top div.item h1{
+	width: 105px;
+	margin-bottom: 25px;
+}
+footer section.top div.item h1 a{
+    width: 100%;
+    display: block;
+    font-size: 27px;
+    text-decoration: none;
+    color: #fff
+}
+footer section.top div.item h1 a img{
+	width: 100%;
+    display: block;
+}
+footer section.top div.item p{
+	color: #C0CCDA;
+	margin-bottom: 25px;
+	font-weight: 500;
+}
+footer section.top div.item h3{
+	color: #fff;
+	font-size: 30px;
+	margin-bottom: 25px;
+	font-weight: 500;
+}
+footer section.top div.item ul{
+	list-style: none;
+}
+footer section.top div.item ul li{
+	
+}
+footer section.top div.item ul li a{
+	color: #C0CCDA;
+	padding: 6px 0;
+	font-size: 15px;
+	display: inline-block;
+	font-weight: 500;
+    text-decoration: none;
+}
+footer section.top div.item form{
+	position: relative;
+}
+footer section.top div.item form input{
+	width: 100%;
+    padding: 0 45px 0 15px;
+    height: 50px;
+    background-color: #3c4858;
+    border-radius: 10px;
+    border: none;
+    outline: 0;
+    display: block;
+	font-size: 16px;
+}
+footer section.top div.item form button{
+	position: absolute;
+	cursor: pointer;
+    background-color: #fff;
+    color: #120702;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 13px;
+    transition: background-color 0.3s ease;
+}
+footer section.top div.item form button:hover {
+    background-color: #6151cd;
+}
+footer section.top div.item form button img{
+	width: 18px;
+	transform: rotate(0deg);
+}
+footer section.bottom{
+	margin-top: 120px;
+	display: flex;
+	justify-content: space-between;
+}
+footer section.bottom p.left{
+	color: #8492a6;
+    margin: 0 0 30px 65px;
+}
+footer section.bottom p.left a{
+	color: #fff;
+    font-size: 14px;
+}
+footer section.bottom p.left a:hover{
+	color: #189191;
+	text-decoration: underline;
+}
+footer section.bottom div.social{
+	
+}
+footer section.bottom div.social ul{
+	display: flex;
+    list-style: none;
+    margin-right: 90px;
+}
+footer section.bottom div.social ul li{
+	margin-right: 15px;
+}
+footer section.bottom div.social ul li:last-child{
+	margin-right: 0;
+}
+footer section.bottom div.social ul li a{
+	display: block;
+}
+footer section.bottom div.social ul li a img{
+	width: 25px;
+	display: block;
+    margin: 10px;
+}

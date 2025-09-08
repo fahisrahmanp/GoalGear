@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - GoalGear</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/contact.css">
+</head>
+<body class="bg-gradient-to-br from-green-50 to-blue-50 min-h-screen">
+    <!-- Header -->
+    <header>
+        <section class="wrapper">
+            <nav>
+                <div class="left">
+                    <a href="/">GoalGear</a>
+                </div>
+                <div class="middle">
+                    <ul>
+                        <li><a href="/#features">New & Featured</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/product">Products</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        {% if 'user' in request.session %}
+                            <li><a href="/order-status/">My Orders</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="right">
+                    <form action="post" class="search">
+                        <img src="{% static 'images/icons/search.png' %}" alt="">
+                        <input type="text" id="Search" name="search" placeholder="Search">
+                    </form>
+                    <ul>
+                        <li><a href="/bag" class="button-1"><img src="{% static 'images/icons/shopping-bag.png' %}" alt=""></a></li>
+                        {% if 'user' in request.session %}
+                        <li><a href="/logout/" class="login-btn">Logout</a></li>
+                        {% else %}
+                        <li><a href="/Login" class="login-btn">Login</a></li>
+                        {% endif %}
+                    </ul>
+                </div>  
+            </nav>
+        </section>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        <!-- Page Title -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Have questions about our football gear? Need help with your order? We're here to assist you with all your football needs.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-16">
+            <!-- Contact Form -->
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h3>
+                {% if success %}
+                <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-100" role="alert">
+                    ✅ Message sent successfully! We’ll get back to you soon.
+                </div>
+                {% endif %}
+                <form method="POST" action="{% url 'contact' %}" class="space-y-6">
+                    {% csrf_token %}
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                        <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                        <input type="tel" name="phone_number" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                        <select required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition">
+                            <option value="">Select a topic</option>
+                            <option value="product-inquiry">Product Inquiry</option>
+                            <option value="order-support">Order Support</option>
+                            <option value="returns">Returns & Exchanges</option>
+                            <option value="technical-support">Technical Support</option>
+                            <option value="partnership">Business Partnership</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                        <textarea required rows="5" name="message" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition" placeholder="Tell us how we can help you..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-gradient-to-r from-green-600 to-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-green-700 hover:to-blue-700 transform hover:-translate-y-1 transition-all duration-200 shadow-lg">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="space-y-8">
+                <!-- Contact Details -->
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-green-100 p-3 rounded-full">
+                                <i class="fas fa-map-marker-alt text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Address</h4>
+                                <p class="text-gray-600">123 Football Street<br>Sports District, City 12345<br>United Kingdom</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-phone text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Phone</h4>
+                                <p class="text-gray-600">+44 20 1234 5678</p>
+                                <p class="text-sm text-gray-500">Mon-Fri 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-purple-100 p-3 rounded-full">
+                                <i class="fas fa-envelope text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Email</h4>
+                                <p class="text-gray-600">info@goalgear.com</p>
+                                <p class="text-gray-600">support@goalgear.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-orange-100 p-3 rounded-full">
+                                <i class="fas fa-clock text-orange-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Business Hours</h4>
+                                <p class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                <p class="text-gray-600">Saturday: 10:00 AM - 4:00 PM</p>
+                                <p class="text-gray-600">Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media & Quick Links -->
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Follow Us</h3>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition transform hover:scale-110">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition transform hover:scale-110">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition transform hover:scale-110">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition transform hover:scale-110">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="border-t pt-6">
+                        <h4 class="font-semibold text-gray-800 mb-4">Quick Support</h4>
+                        <div class="space-y-3">
+                            <a href="#" class="flex items-center text-gray-600 hover:text-green-600 transition">
+                                <i class="fas fa-question-circle mr-3"></i>
+                                FAQ
+                            </a>
+                            <a href="#" class="flex items-center text-gray-600 hover:text-green-600 transition">
+                                <i class="fas fa-undo mr-3"></i>
+                                Returns & Exchanges
+                            </a>
+                            <a href="#" class="flex items-center text-gray-600 hover:text-green-600 transition">
+                                <i class="fas fa-shipping-fast mr-3"></i>
+                                Shipping Info
+                            </a>
+                            <a href="#" class="flex items-center text-gray-600 hover:text-green-600 transition">
+                                <i class="fas fa-shield-alt mr-3"></i>
+                                Size Guide
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map Section -->
+        <div class="mt-16">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">Find Our Store</h3>
+                <div class="bg-gray-200 rounded-lg h-64 flex items-center justify-center">
+                    <div class="text-center text-gray-600">
+                        <i class="fas fa-map-marked-alt text-4xl mb-4"></i>
+                        <p class="text-lg font-semibold">Interactive Map</p>
+                        <p class="text-sm">Visit us at our flagship store</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <section class="wrapper">
+            <section class="top">
+                <div class="item">
+                    <h1><a href="#">GoalGear</a></h1>
+                    <p>Welcome to GoalGear.</p>
+                </div>
+                <div class="item">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#">Football Shoes</a></li>
+                        <li><a href="#">Jerseys & Apparel</a></li>
+                        <li><a href="#">Goalkeeper Gear</a></li>
+                        <li><a href="#">Training Equipment</a></li>
+                        <li><a href="#">Football Accessories</a></li>
+                        <li><a href="#">Kids’ Football Gear</a></li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Fast & Secure Delivery</a></li>
+                        <li><a href="#">Easy Returns & Refunds</a></li>
+                        <li><a href="#">24/7 Customer Support</a></li>
+                        <li><a href="#">Secure Payment Methods</a></li>
+                        <li><a href="#">Best Quality Guarantee</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Meet the Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <h3>Stay up to date</h3>
+                    <p>Subscribe to our newsletter.</p>
+                    <form action="">
+                        <input type="email" id="E-mail" placeholder="Your email address" required />
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+            </section>
+            <section class="bottom">
+                <p class="left">
+                    &copy; 2025 @GoalGear-All rights reserved- <a href="#">Privacy Policy</a> <br /> v1.16
+                </p>
+                <div class="social">
+                    <ul>
+                        <li>
+                            <a href="#"><img src="{% static 'images/icons/facebook.svg' %}" alt="facebook" /></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="{% static 'images/icons/twitter.svg' %}" alt="twitter" /></a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </section>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Simple form validation and success message
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Show success message
+            const successMessage = document.createElement('div');
+            successMessage.className = 'fixed top-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300';
+            successMessage.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Message sent successfully! We\'ll get back to you soon.';
+            document.body.appendChild(successMessage);
+            
+            // Animate in
+            setTimeout(() => {
+                successMessage.classList.remove('translate-x-full');
+            }, 100);
+            
+            // Animate out after 5 seconds
+            setTimeout(() => {
+                successMessage.classList.add('translate-x-full');
+                setTimeout(() => {
+                    document.body.removeChild(successMessage);
+                }, 300);
+            }, 5000);
+            
+            // Reset form
+            form.reset();
+        }
+
+        // Add smooth scrolling for any anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation to form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const submitButton = form.querySelector('button[type="submit"]');
+            
+            form.addEventListener('submit', function() {
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+                submitButton.disabled = true;
+                
+                setTimeout(() => {
+                    submitButton.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Send Message';
+                    submitButton.disabled = false;
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>

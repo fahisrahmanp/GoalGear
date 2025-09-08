@@ -1,0 +1,42 @@
+<!-- order_status.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Status</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-5xl mx-auto py-10">
+        <h1 class="text-3xl font-bold mb-6 text-center">Your Orders</h1>
+
+        {% if order_data %}
+            {% for data in order_data %}
+                <div class="bg-white p-6 rounded-xl shadow-md mb-6">
+                    <h2 class="text-xl font-semibold mb-2">Order ID: {{ data.order.id }}</h2>
+                    <span class="px-2 py-1 rounded-full text-white {% if data.order.status == 'Pending' %}bg-yellow-500
+                        {% elif data.order.status == 'Processing' %}bg-blue-500
+                        {% elif data.order.status == 'Shipped' %}bg-indigo-500
+                        {% elif data.order.status == 'Delivered' %}bg-green-600
+                        {% elif data.order.status == 'Cancelled' %}bg-red-500
+                        {% endif %}">{{ data.order.status }}</span>
+
+                    <p>Date: {{ data.order.created_at|date:"M d, Y H:i" }}</p>
+                    <p>Total Amount: ₹{{ data.order.total_amount }}</p>
+
+                    <div class="mt-4">
+                        <h3 class="font-semibold">Items:</h3>
+                        <ul class="list-disc pl-6">
+                            {% for item in data.items %}
+                                <li>{{ item.product.name }} - Quantity: {{ item.quantity }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="text-center text-gray-600">You have no orders yet.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

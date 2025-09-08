@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoalGear - Login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <style>
+        body {
+            background-image: url('{% static "images/login_back.jpg" %}')
+        }
+    </style>
+</head>
+<body>
+    <section id="goalgear-login">
+        <section class="wrapper">
+            <div class="login-container">
+                <h1>GoalGear</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="text" name="username" placeholder="username" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <a href="/"><button type="submit">Log in</button></a>
+                </form>
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+                <a href="#" class="facebook-login">
+                    <img src="{% static 'images/icons/facebook-badge.svg' %}" alt="Facebook">
+                    Log in with Facebook
+                </a>
+                <a href="#" class="forgot-password">Forgot password?</a>
+            </div>
+            <div class="signup-container">
+                <p>Don’t have an account? <a href="/signup">Sign up</a></p>
+            </div>
+        </section>
+    </section>
+</body>
+</html>

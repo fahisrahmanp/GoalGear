@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoalGear Header</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .wrapper {
+            width: 100%;
+        }
+
+        header {
+            background-color: #edff5c;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 65px;
+        }
+
+        .left a {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .middle ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .middle ul li a {
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .middle ul li a:hover {
+            color: #6151cd;
+        }
+
+        .right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+        }
+
+        .search input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .search img {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+        }
+
+        .right ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .right ul li a {
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .right ul li a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+        }
+
+        .right ul li a.button-1 img {
+            width: 35px;
+            height: 35px;
+            margin-bottom: 4px;
+        }
+
+        /* New login button styles */
+        .login-btn {
+            background-color: #6151cd;
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            width: auto !important;
+            height: auto !important;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: #4a3fa0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <section class="wrapper">
+            <nav>
+                <div class="left">
+                    <a href="/">GoalGear</a>
+                </div>
+                <div class="middle">
+                    <ul>
+                        <li><a href="/#features">New & Featured</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/product">Products</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/product">Sale</a></li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <form action="post" class="search">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E" alt="">
+                        <input type="text" id="Search" name="search" placeholder="Search">
+                    </form>
+                    <ul>
+                        <li><a href="/bag" class="button-1"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Cpath d='M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z'/%3E%3Cline x1='3' y1='6' x2='21' y2='6'/%3E%3Cpath d='m16 10a4 4 0 0 1-8 0'/%3E%3C/svg%3E" alt=""></a></li>
+                        <li><a href="/Login" class="login-btn">Login</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </section>
+    </header>
+</body>
+</html>

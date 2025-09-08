@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoalGear - Sign Up</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <style>
+        body {
+            background-image: url('{% static "images/signup_back.jpg" %}')
+        }
+    </style>
+</head>
+<body>
+    <section id="goalgear-signup">
+        <section class="wrapper">
+            <div class="signup-container">
+                <h1>GoalGear</h1>
+                <p>Sign up to explore the best football gear and accessories.</p>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <a href=""></a> <button type="submit">Sign Up</button></a>
+                </form>
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+                <a href="#" class="facebook-login">
+                    <img src="{% static 'images/icons/facebook-badge.svg' %}" alt="Facebook">
+                    Sign up with Facebook
+                </a>
+            </div>
+            <div class="login-container">
+                <p>Already have an account? <a href="/">Log in</a></p>
+            </div>
+        </section>
+    </section>
+</body>
+</html>

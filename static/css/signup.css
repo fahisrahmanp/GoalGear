@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* background-image: url(/images/signup_back.jpg); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    backdrop-filter: blur(2px);
+}
+
+#goalgear-signup {
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+}
+
+.signup-container, .login-container {
+    background-color: #14141a82;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.signup-container h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.signup-container p {
+    font-size: 14px;
+    color: #f4f0f0;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fafafa;
+}
+
+input::placeholder {
+    color: #999;
+}
+
+input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+button {
+    background-color: #120702;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #6151cd;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #000;
+}
+
+.divider span {
+    padding: 0 10px;
+    color: #999;
+    font-size: 14px;
+}
+
+.facebook-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #007BFF;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.facebook-login img {
+    width: 16px;
+    height: 16px;
+}
+
+.login-container {
+    font-size: 14px;
+}
+
+.login-container p {
+    color: #f4f0f0;
+}
+
+.login-container a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #goalgear-signup {
+        max-width: 90%;
+    }
+    .signup-container h1 {
+        font-size: 28px;
+    }
+    .signup-container p {
+        font-size: 12px;
+    }
+    input, button {
+        font-size: 12px;
+    }
+    .facebook-login, .login-container {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .signup-container h1 {
+        font-size: 24px;
+    }
+    input, button {
+        padding: 8px;
+    }
+    .divider span {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page - Football Boots</title>
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+</head>
+<body>
+    <header>
+        <section class="wrapper">
+            <nav>
+                <div class="left">
+                    <a href="/">GoalGear</a>
+                </div>
+                <div class="middle">
+                    <ul>
+                        <li><a href="/#features">New & Featured</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/product">Products</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        {% if 'user' in request.session %}
+                            <li><a href="/order-status/">My Orders</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="right">
+                    <form action="post" class="search">
+                        <img src="{% static 'images/icons/search.png' %}" alt="">
+                        <input type="text" id="Search" name="search" placeholder="Search">
+                    </form>
+                    <ul>
+                        <li><a href="{% url 'bag' %}" class="button-1"><img src="{% static 'images/icons/shopping-bag.png' %}" alt=""></a></li>
+                        {% if 'user' in request.session %}
+                        <li><a href="/logout/" class="login-btn">Logout</a></li>
+                        {% else %}
+                        <li><a href="/Login" class="login-btn">Login</a></li>
+                        {% endif %}
+                    </ul>
+                </div>  
+            </nav>
+        </section>
+    </header>
+    <section id="product">
+        <section class="product-container">
+            <div class="product-images">
+                <!-- Add product images here -->
+                <!-- <img src="{% static 'images/boot1.jpg' %}" alt="Football Boots"> -->
+                {% if images.first %}
+                <img src="{{ images.first.image.url }}" alt="{{ x.name }}">
+                {% else %}
+                <img src="{% static 'images/default-product.jpg' %}" alt="No image">
+                {% endif %}
+            </div>
+            <div class="product-details">
+                <h1 class="product-title">{{product.name}}</h1>
+                <p class="description">{{product.description}}</p>
+                <div class="product-price">
+                    <span>MRP : ₹ {{product.price}}</span>
+                    <p class="price-details">Inclusive of all taxes<br>(Also includes all applicable duties)</p>
+                </div>
+                <div class="size-selector">
+                    <h3>Select Size</h3>
+                    <p class="description">Snug fit; if you prefer a slightly looser fit, we recommend ordering half a size up</p>
+                    <div class="size-grid">
+                        <div class="size-option">UK 6 (EU 40)</div>
+                        <div class="size-option">UK 6.5</div>
+                        <div class="size-option">UK 7.0</div>
+                    </div>
+                </div>
+                <div class="cta-buttons">
+                    <a href="{% url 'add_to_cart' product.id %}"><button class="btn-primary" type="submit">Add to Bag</button></a>
+                    <form action="{% url 'add_address' %}" method="get">
+                        <a href=""><button class="btn-secondary" type="submit">Buy Now</button></a>
+                    </form> 
+                    
+                </div>
+                <div class="product-info">
+                    <h3>Product Details</h3>
+                    <p class="description">High-performance football boots designed for professional players...</p>
+                </div>
+            </div>
+        </section>
+    </section>
+    <footer>
+        <section class="wrapper">
+            <section class="top">
+                <div class="item">
+                    <h1><a href="#">GoalGear</a></h1>
+                    <p>Welcome to GoalGear.</p>
+                </div>
+                <div class="item">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#">Football Shoes</a></li>
+                        <li><a href="#">Jerseys & Apparel</a></li>
+                        <li><a href="#">Goalkeeper Gear</a></li>
+                        <li><a href="#">Training Equipment</a></li>
+                        <li><a href="#">Football Accessories</a></li>
+                        <li><a href="#">Kids’ Football Gear</a></li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Fast & Secure Delivery</a></li>
+                        <li><a href="#">Easy Returns & Refunds</a></li>
+                        <li><a href="#">24/7 Customer Support</a></li>
+                        <li><a href="#">Secure Payment Methods</a></li>
+                        <li><a href="#">Best Quality Guarantee</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Meet the Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <h3>Stay up to date</h3>
+                    <p>Subscribe to our newsletter.</p>
+                    <form action="">
+                        <input type="email" id="E-mail" placeholder="Your email address" required />
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+            </section>
+            <section class="bottom">
+                <p class="left">
+                    &copy; 2025 @GoalGear-All rights reserved- <a href="#">Privacy Policy</a> <br /> v1.16
+                </p>
+                <div class="social">
+                    <ul>
+                        <li>
+                            <a href="#"><img src="{% static 'images/icons/facebook.svg' %}" alt="facebook" /></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="{% static 'images/icons/twitter.svg' %}" alt="twitter" /></a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </section>
+    </footer>
+</body>
+</html>
